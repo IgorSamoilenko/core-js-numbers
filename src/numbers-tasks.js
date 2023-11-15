@@ -110,6 +110,7 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
   const secondAngle = Math.atan2(y2, y1);
   return secondAngle - firstAngle; */
   throw new Error('Not implemented');
+  // return Math.atan2(y2, y1) - Math.atan2(x2, x1);
 }
 
 /**
@@ -201,6 +202,7 @@ function roundToPowerOfTen(num, pow) {
  */
 function isPrime(/* n */) {
   throw new Error('Not implemented');
+  /* return (n - 1) ** n % n === (n - 1) % n; */
 }
 
 /**
@@ -218,8 +220,11 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  if (Number.isNaN(+value)) {
+    return def;
+  }
+  return +value;
 }
 
 /**
@@ -394,8 +399,8 @@ function toPrecision(number, precision) {
  * new Number(5) => 5
  * Number(-5)    => -5
  */
-function getNumberValue(/* number */) {
-  throw new Error('Not implemented');
+function getNumberValue(number) {
+  return number.valueOf();
 }
 
 /**
